@@ -48,6 +48,11 @@ catchphraseButton.addEventListener('click', () => {
     // push the new catchphrase to the catchphrase array in state
     catchphraseButton.push(newThing);
     // clear out the form input's value so it's empty to the user
+    FormData.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        data.get(catchphraseButton);
+    });
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
 });
 
