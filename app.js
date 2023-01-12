@@ -53,6 +53,10 @@ catchphraseButton.addEventListener('click', () => {
     displayCatchphrases();
 });
 
+function makeURL(location, id) {
+    return `assets/${location}-${id}.png`;
+}
+
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
     reportEl.textContent = `You have changed the head ${headCount} times... middle ${middleCount} times.. and bottom ${bottomCount} times!`;
