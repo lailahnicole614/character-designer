@@ -16,25 +16,37 @@ let middleCount = 0;
 let bottomCount = 0;
 // set state for all of the character's catchphrases
 let catchphrases = [];
-headDropdown.addEventListener('change', () => {});
-
+// Events
+headDropdown.addEventListener('change', () => {
+    const userClicked = headEl.value;
+    headCount++;
+    displayStats();
+});
 middleDropdown.addEventListener('change', () => {
     // get the value of the middle dropdown
+    const userClicked = middleEl.value;
     // increment the middle change count state
+    middleCount++;
     // update the dom for the middle (NOTE: use style.backgroundImage on the middleEl div instead of trying to set the .src -- it's NOT an img tag!)
     // update the stats to show the new count (call displayStats() to do this work)
+    displayStats();
 });
 
 bottomDropdown.addEventListener('change', () => {
     // get the value of the bottom dropdown
+    const userClicked = bottomEl.value;
     // increment the bottom change count state
+    bottomCount++;
     // update the dom for the bottom (NOTE use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
     // update the stats to show the new count (call displayStats() to do this work)
+    displayStats();
 });
 
 catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
+    const userClicked = catchphraseButton.value;
     // push the new catchphrase to the catchphrase array in state
+    catchphraseButton.push(newThing);
     // clear out the form input's value so it's empty to the user
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
 });
