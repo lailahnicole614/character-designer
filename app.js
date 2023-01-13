@@ -34,9 +34,8 @@ middleDropdown.addEventListener('change', () => {
 });
 
 bottomDropdown.addEventListener('change', () => {
-    bottomEl.style.backgroundImage = makeURL(bottomDropdown.value, 'bottom');
+    bottomEl.style.backgroundImage = makeURL(bottomDropdown.value, 'pants');
     // get the value of the bottom dropdown
-    const userClicked = bottomEl.value;
     // increment the bottom change count state
     bottomCount++;
     // update the dom for the bottom (NOTE use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
@@ -66,8 +65,16 @@ function displayStats() {
 
 function displayCatchphrases() {
     // clear out the DOM for the currently displayed catchphrases
+    catchphrasesEl.textContent = '';
     // loop through each catchphrase in state
+    for (let catchphrase of catchphrases) {
+        const newElement = document.createElement('p');
+        newElement.textContent = catchphrase;
+        catchphrasesEl.append(newElement);
+    }
     // and for each catchphrase
+
     // create an HTML element with the catchphrase as its text content
+
     // and append that HTML element to the cleared-out DOM
 }
