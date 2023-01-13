@@ -18,11 +18,12 @@ let bottomCount = 0;
 let catchphrases = [];
 // Events
 headDropdown.addEventListener('change', () => {
-    const userClicked = headEl.value;
+    headEl.style.backgroundImage = makeURL(headDropdown.value, 'head');
     headCount++;
     displayStats();
 });
 middleDropdown.addEventListener('change', () => {
+    middleEl.style.backgroundImage = makeURL(middleDropdown.value, 'middle');
     // get the value of the middle dropdown
     const userClicked = middleEl.value;
     // increment the middle change count state
@@ -33,6 +34,7 @@ middleDropdown.addEventListener('change', () => {
 });
 
 bottomDropdown.addEventListener('change', () => {
+    bottomEl.style.backgroundImage = makeURL(bottomDropdown.value, 'bottom');
     // get the value of the bottom dropdown
     const userClicked = bottomEl.value;
     // increment the bottom change count state
@@ -42,19 +44,19 @@ bottomDropdown.addEventListener('change', () => {
     displayStats();
 });
 
-catchphrasesEl.addEventListener('click', () => {
+catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
     const inputPhrase = catchphraseInputEl.value;
     // push the new catchphrase to the catchphrase array in state
-    catchphrases.push(catchphraseInputEl.value);
+    catchphrases.push(inputPhrase);
     // clear out the form input's value so it's empty to the user
     catchphraseInputEl.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
 });
 
-function makeURL(location, id) {
-    return `assets/${location}-${id}.png`;
+function makeURL(select, type) {
+    return `url(../assets/${select}-${type}.png)`;
 }
 
 function displayStats() {
